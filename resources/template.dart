@@ -10,7 +10,7 @@ import 'package:utils/utils.dart';
 import 'template_wm.dart';
 
 class TemplateWidget extends ElementaryWidget<TemplateWm> with LoggerMixin {
-  TemplateWidget({super.key}) : super((() => (context) => TemplateWm())());
+  TemplateWidget({super.key}) : super((context) => TemplateWm());
 
   @override
   Widget build(wm, context) {
