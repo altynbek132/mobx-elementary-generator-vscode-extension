@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 // ignore: unused_import
 import 'package:mobx/mobx.dart';
-import 'package:utils/utils.dart';
+import 'package:utils/utils_dart.dart';
+import 'package:utils/utils_flutter.dart';
 
 import 'template_wm.dart';
 

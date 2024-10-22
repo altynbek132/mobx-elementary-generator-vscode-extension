@@ -7,24 +7,25 @@ import 'package:collection/collection.dart';
 // ignore: unused_import
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
-import 'package:utils/utils.dart';
+import 'package:utils/utils_dart.dart';
+import 'package:utils/utils_flutter.dart';
 
 import 'template.dart';
 
 part 'template_wm.g.dart';
 
-// @LazySingleton(dispose: disposeTemplateWm)
-class TemplateWm = _TemplateWmBase with _$TemplateWm;
+class TemplateWm = TemplateWmBase with _$TemplateWm;
 
-abstract class _TemplateWmBase extends MobxWM<TemplateWidget> with Store, LoggerMixin {
+abstract class TemplateWmBase extends MobxWM<TemplateWidget> with Store, LoggerMixin {
   // INIT ---------------------------------------------------------------------
 
   @override
+  // ignore: unnecessary_overrides
   void initWidgetModel() {
     super.initWidgetModel();
   }
 
-  // DEPENDENCIES -------------------------------------------------------------
+  // DI DEPENDENCIES ----------------------------------------------------------
 
   // FIELDS -------------------------------------------------------------------
 
@@ -52,5 +53,3 @@ abstract class _TemplateWmBase extends MobxWM<TemplateWidget> with Store, Logger
     );
   }
 }
-
-Future<void> disposeTemplateWm(TemplateWm instance) async => instance.dispose();
