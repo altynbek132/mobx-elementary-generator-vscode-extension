@@ -10,8 +10,13 @@ import 'package:utils/utils_flutter.dart';
 
 import 'template_wm.dart';
 
+TemplateWm _wmFactory(BuildContext context) => TemplateWm();
+
 class TemplateWidget extends ElementaryWidget<TemplateWm> with LoggerMixin {
-  TemplateWidget({super.key}) : super((context) => TemplateWm());
+  const TemplateWidget({
+    super.key,
+    WidgetModelFactory wmFactory = _wmFactory,
+  }) : super(wmFactory);
 
   @override
   Widget build(wm, context) {
