@@ -22,7 +22,23 @@ class TemplateWidget extends ElementaryWidget<TemplateWm> with LoggerMixin {
   Widget build(wm, context) {
     return Observer(
       builder: (context) {
-        return const Center(child: Text('Template'));
+        return Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: MediaQuery.of(context).size.height,
+                  ),
+                  child: Center(
+                    child: const Text('template'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
       },
     );
   }
