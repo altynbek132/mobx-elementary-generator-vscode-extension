@@ -20,26 +20,29 @@ class TemplateWidget extends ElementaryWidget<TemplateWm> with LoggerMixin {
 
   @override
   Widget build(wm, context) {
-    return Observer(
-      builder: (context) {
-        return Scaffold(
-          body: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: MediaQuery.of(context).size.height,
+    return Provider.value(
+      value: wm,
+      child: Observer(
+        builder: (context) {
+          return Scaffold(
+            body: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: MediaQuery.of(context).size.height,
+                    ),
+                    child: Center(
+                      child: const Text('asdf'),
+                    ),
                   ),
-                  child: Center(
-                    child: const Text('template'),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
