@@ -12,8 +12,8 @@ import 'template_wm.dart';
 
 TemplateWm _wmFactory(BuildContext context) => TemplateWm();
 
-class TemplateWidget extends ElementaryWidget<TemplateWm> with LoggerMixin {
-  const TemplateWidget({
+class Template extends ElementaryWidget<TemplateWm> with LoggerMixin {
+  const Template({
     super.key,
     WidgetModelFactory wmFactory = _wmFactory,
   }) : super(wmFactory);
