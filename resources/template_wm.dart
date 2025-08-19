@@ -6,12 +6,13 @@ import 'package:flutter/material.dart' hide Action;
 import 'package:collection/collection.dart';
 // ignore: unused_import
 import 'package:mobx/mobx.dart';
+import 'package:provider/provider.dart';
 import 'package:utils/utils_dart.dart';
 import 'package:utils/utils_flutter.dart';
 
 import 'template.dart';
 
-class TemplateWm extends MobxWM<TemplateWidget> with Store, LoggerMixin {
+class TemplateWm extends MobxWM<Template> with Store, LoggerMixin {
 // ====================================================== INIT ====================================================== //
 
   @override

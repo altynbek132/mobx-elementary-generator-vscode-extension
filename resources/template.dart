@@ -13,36 +13,42 @@ import 'template_wm.dart';
 TemplateWm _wmFactory(BuildContext context) => TemplateWm();
 
 class Template extends ElementaryWidget<TemplateWm> with LoggerMixin {
-  const Template({
-    super.key,
-    WidgetModelFactory wmFactory = _wmFactory,
-  }) : super(wmFactory);
+  const Template({super.key, WidgetModelFactory wmFactory = _wmFactory})
+    : super(wmFactory);
 
   @override
   Widget build(wm, context) {
-    return Provider.value(
-      value: wm,
-      child: Observer(
-        builder: (context) {
-          return Scaffold(
-            body: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: MediaQuery.of(context).size.height,
-                    ),
-                    child: Center(
-                      child: const Text('asdf'),
-                    ),
+    return Provider.value(value: wm, child: Body());
+  }
+}
+
+extension BuildContextTemplateWmExtension on BuildContext {
+  TemplateWm get readTemplateWm => read<TemplateWm>();
+}
+
+class Body extends StatelessWidget {
+  const Body({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Observer(
+      builder: (context) {
+        return Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: MediaQuery.of(context).size.height,
                   ),
-                ],
-              ),
+                  child: Center(child: const Text('asdf')),
+                ),
+              ],
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
